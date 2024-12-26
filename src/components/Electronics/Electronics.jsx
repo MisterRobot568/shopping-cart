@@ -1,7 +1,8 @@
+import GetProductCards from "../GetProductCards/GetProductCards";
 const Electronics = () => {
   return (
     <div>
-      <p>Electronics SECTION </p>
+      <GetProductCards category="electronics" />
     </div>
   );
 };

@@ -7,6 +7,8 @@ import Button from "./components/Button/Button";
 import ProductCard from "./components/ProductCard/ProductCard";
 import Products from "./components/Products/products";
 import DefaultProfile from "./components/DefaultProfile"; //change this to an actual default page
+// import FetchProducts from "./components/FetchProducts";
+import GetProductCards from "./components/GetProductCards/GetProductCards";
 
 import { useParams } from "react-router-dom"; // so that we can dynamically swap pages
 const App = () => {
@@ -33,7 +35,9 @@ const App = () => {
           </li>
         </ul>
       </nav>
+
       <Outlet />
+
       {/* <p>{name}</p>
       {name === "products" ? (
         <Products />
