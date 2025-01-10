@@ -1,0 +1,9 @@
+.title {
+  text-decoration: none;
+  /* background-color: yellow; */
+  width: 100vw;
+  margin: 0;
+}
+.titleLink {
+  text-decoration: none;
+}

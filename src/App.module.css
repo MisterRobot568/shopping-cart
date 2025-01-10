@@ -1,0 +1,30 @@
+.appWindow {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.title {
+  text-decoration: none;
+  /* background-color: yellow; */
+  width: 100vw;
+  margin: 0;
+}
+.titleLink {
+  text-decoration: none;
+}
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #333; */
+  color: white;
+}
+.navLink {
+  text-decoration: none;
+}
