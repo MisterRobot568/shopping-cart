@@ -1,9 +1,23 @@
-.title {
-  text-decoration: none;
+.container {
+  display: flex;
+  flex-direction: column;
   /* background-color: yellow; */
   width: 100vw;
   margin: 0;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
 }
+/* .spacer {
+  flex: 1;
+} */
 .titleLink {
   text-decoration: none;
+  color: black;
+}
+.shoppingBag {
+  /* flex: none; */
+  position: absolute;
+  right: 0;
 }

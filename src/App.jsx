@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import styles from "./App.module.css";
 import shoppingBag from "./assets/shopping-bag.png";
 
 import Header from "./components/HomeComponents/Header/Header";
 import NavBar from "./components/HomeComponents/NavBar/NavBar";
+import HomeBody from "./components/HomeComponents/HomeBody/HomeBody";
+import Footer from "./components/Footer/Footer";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 // import "./App.css";
@@ -22,6 +24,8 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const location = useLocation(); // determines the current path (url)
 
   // for in memory cache
   // const cache = useRef({});
@@ -56,49 +60,13 @@ const App = () => {
 
   return (
     <div className={styles.appWindow}>
-      <Header />
-      <NavBar products={products} />
-      {/* <nav className={styles.navBar}>
-        <Link
-          to="/products/all"
-          className={styles.navLink}
-          state={{ products: products }}
-        >
-          Collection
-        </Link>
+      <Header products={products} />
+      {/* <NavBar products={products} /> */}
+      {location.pathname === "/" ? <HomeBody /> : <Outlet />}
+      {/* if at the home url, we render home component. If at another url, render child component */}
 
-        <Link
-          to="/products/electronics"
-          className={styles.navLink}
-          state={{
-            products: products.filter((p) => p.category === "electronics"),
-          }}
-        >
-          Electronics
-        </Link>
-
-        <Link
-          to="/products/mens"
-          className={styles.navLink}
-          state={{
-            products: products.filter((p) => p.category === "men's clothing"),
-          }}
-        >
-          Mens
-        </Link>
-
-        <Link
-          to="/products/womens"
-          className={styles.navLink}
-          state={{
-            products: products.filter((p) => p.category === "women's clothing"),
-          }}
-        >
-          Womens
-        </Link>
-      </nav> */}
-
-      <Outlet />
+      {/* footer should go here */}
+      <Footer />
 
       {/* <p>{name}</p>
       {name === "products" ? (
