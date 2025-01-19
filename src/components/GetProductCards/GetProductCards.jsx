@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 // css modules styling
 import styles from "./GetProductCards.module.css";
+// import { Link } from "react-router-dom";
 // function useFetchProducts(category = "") {
 //   //   const [title, setTitle] = useState(null);
 //   //   const [price, setPrice] = useState(null);
@@ -60,14 +62,17 @@ const GetProductCards = ({ productsList }) => {
       {productsList &&
         productsList.map((product) => (
           <div key={product.id}>
-            <img
-              className={styles.img}
-              src={product.image}
-              alt={product.title}
-            />
-            <h2>{product.title}</h2>
-            <p>price: {product.price}</p>
-            {/* <p>Product Description:{product.description}</p> */}
+            <Link to={`/item/${product.id}`} state={product}>
+              <img
+                className={styles.img}
+                src={product.image}
+                alt={product.title}
+              />
+              <h2>{product.title}</h2>
+              <p>price: {product.price}</p>
+
+              {/* <p>Product Description:{product.description}</p> */}
+            </Link>
           </div>
         ))}
     </div>

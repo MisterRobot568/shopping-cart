@@ -1,15 +1,31 @@
 /* this file has global styles for the document */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Pixelify+Sans&family=Roboto&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100;
+  /* height: 100; */
+  text-decoration: none;
 }
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Pixelify+Sans&family=Roboto&display=swap");
-body {
-  font-family: "Roboto", sans-serif;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
+@media (max-width: 500px) {
+  body {
+    width: 500px;
+  }
+  /* document {
+    width: 500px;
+  } */
+}
+/* anchor tag styling will style all link tags for us */
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

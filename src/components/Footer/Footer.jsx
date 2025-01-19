@@ -33,7 +33,7 @@ const Footer = () => {
         <div className={styles.infoSection}>
           <div className={styles.infoHeader}>
             <p className={styles.title2}>ASK A CONSUMERIST SPECIALIST</p>
-            <p>
+            <p className={styles.description}>
               This is a short sentence in relation to consumerism. We're here to
               assist!
             </p>
@@ -59,7 +59,7 @@ const Footer = () => {
         <a>Privacy</a>
         <a>Accessibility</a>
         <a>Terms of Service</a>
-        <a href="">Refund Policy</a>
+        <a>Refund Policy</a>
       </div>
     </div>
   );

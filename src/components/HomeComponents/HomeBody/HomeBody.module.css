@@ -37,6 +37,26 @@
 .text {
   max-width: 30rem;
 }
+.consumeBtn {
+  /* text-decoration: none; */
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 10px;
+
+  transition: transform 0.2s ease-out 0s;
+  /* transition:  */
+}
+.consumeBtn:hover {
+  /* background-color: red; */
+  transform: scale(1.05);
+  text-decoration: underline;
+}
+.buttonLink {
+  text-decoration: none;
+}
 
 .headline {
   font-size: 3rem;
@@ -52,4 +72,23 @@
 }
 .textEven {
   text-align: left;
+}
+
+@media (max-width: 500px) {
+  .container {
+    /* width: 500px; */
+    /* width: 100vw; */
+  }
+  .picAndText {
+    flex-direction: column;
+  }
+  .picAndTextEven {
+    flex-direction: column-reverse;
+    /* This reverses the order of the column so that text comes first */
+  }
+  .text {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }

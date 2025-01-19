@@ -1,5 +1,5 @@
 .appWindow {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
   /* justify-content: center; */
@@ -7,6 +7,11 @@
   flex-direction: column;
   margin: 0;
   padding: 0;
+}
+@media (max-width: 500px) {
+  .appWindow {
+    width: 500px;
+  }
 }
 
 /* .title {

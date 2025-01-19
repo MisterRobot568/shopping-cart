@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import styles from "./App.module.css";
+import headerStyles from "./components/HomeComponents/Header/Header.module.css";
 import shoppingBag from "./assets/shopping-bag.png";
 
 import Header from "./components/HomeComponents/Header/Header";
+// import StickyHeader from "./components/HomeComponents/Header/StickyHeader";
 import NavBar from "./components/HomeComponents/NavBar/NavBar";
 import HomeBody from "./components/HomeComponents/HomeBody/HomeBody";
 import Footer from "./components/Footer/Footer";
@@ -25,6 +27,8 @@ const App = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const location = useLocation(); // determines the current path (url)
 
   // for in memory cache
@@ -32,6 +36,21 @@ const App = () => {
 
   useEffect(() => {
     const cachedProducts = localStorage.getItem("products");
+
+    // const handleScroll = () => {
+    //   const headerElement = document.querySelector(
+    //     `.${headerStyles.mainHeaderContainer}`
+    //   );
+    //   const headerHeight = headerElement.offsetHeight;
+    //   if (window.scrollY > headerHeight) {
+    //     setIsSticky(true);
+    //   } else {
+    //     setIsSticky(false);
+    //   }
+    // };
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 115);
+    };
 
     if (cachedProducts) {
       // use cached data if available
@@ -54,30 +73,29 @@ const App = () => {
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
     }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
 
   return (
     <div className={styles.appWindow}>
-      <Header products={products} />
+      <Header products={products} isScrolled={isScrolled} />
+      {/* {isSticky && <StickyHeader />} */}
       {/* <NavBar products={products} /> */}
-      {location.pathname === "/" ? <HomeBody /> : <Outlet />}
+      {location.pathname === "/" ? (
+        <HomeBody products={products} />
+      ) : (
+        <Outlet />
+      )}
       {/* if at the home url, we render home component. If at another url, render child component */}
 
       {/* footer should go here */}
       <Footer />
-
-      {/* <p>{name}</p>
-      {name === "products" ? (
-        <Products />
-      ) : name === "test" ? (
-        <DefaultProfile />
-      ) : (
-        <DefaultProfile />
-      )}
-      <Button></Button>
-      <ProductCard /> */}
     </div>
   );
 };
