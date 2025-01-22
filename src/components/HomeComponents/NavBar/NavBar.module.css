@@ -18,3 +18,13 @@
   background-color: #555;
   color: #ffcc00;
 }
+.scrolled {
+  width: 40%;
+  /* display: none; */
+}
+@media (max-width: 500px) {
+  /* at 500px this navbar disappears so the mobile navbar can appear */
+  .scrolled {
+    display: none;
+  }
+}

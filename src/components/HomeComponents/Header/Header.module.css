@@ -3,7 +3,7 @@
   flex-direction: column;
   /* background-color: yellow; */
   width: 100vw;
-  height: 10rem;
+  /* height: 10rem; */
   margin: 0;
   justify-content: center;
   align-items: center;
@@ -11,20 +11,32 @@
   /* top: 0; */
   transition: background-color 0.3s ease;
 }
-/* .spacer {
-  flex: 1;
-} */
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+.spacer {
+  /* flex-grow: 1; */
+  width: 100px;
+}
 .titleLink {
   text-decoration: none;
   color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* flex-grow: 1; */
+
   /* margin: 0; */
 }
+/* .titleLink:hover {
+} */
 .topTitle,
 .bottomTitle {
   margin: 0;
+  text-align: center;
 }
 .topTitle {
   letter-spacing: 8px;
@@ -36,21 +48,44 @@
   font-size: 1rem;
 }
 .shoppingBag {
+  width: 100px;
+
   /* flex: none; */
-  position: absolute;
-  right: 0;
+  /* position: absolute; */
+  /* right: 0; */
+  /* flex-grow: 1; */
 }
 .scrolled {
   background-color: black;
   position: sticky;
   top: 0;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   height: 5rem;
   color: white;
+  padding: 20px;
   /* fontsize: */
 }
-
+.scrolledInner {
+  /* display: flex;
+  flex-direction: row; */
+  display: contents;
+  /* background-color: red; */
+}
 .scrolledText {
   color: white;
+}
+.scrolledBag {
+  order: 3;
+  /* order: 100; */
+  /* position: sticky;
+  right: 0; */
+}
+.scrolledDivider {
+  /* when we scroll down the divider is removed from flow of document */
+  display: none;
+}
+.navBar {
+  width: 20%;
 }

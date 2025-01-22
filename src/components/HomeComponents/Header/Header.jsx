@@ -1,29 +1,73 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import shoppingBag from "../../../assets/shopping-bag.png";
+import shoppingBag from "../../../assets/shopping-bag.svg";
+import menuBtn from "../../../assets/menu-btn.svg";
 import NavBar from "../NavBar/NavBar";
+import NavBarMobile from "../NavBar/NavBarMobile";
+import { useState, useEffect } from "react";
 
 const Header = ({ products, isScrolled }) => {
+  // logic for opening and closing popup nav menu
+  const [isClosed, setIsClosed] = useState(false);
+  const openPopup = () => {
+    setIsClosed(false);
+  };
+  const closePopup = () => {
+    setIsClosed(true);
+  };
+  const togglePopUp = () => {
+    if (isClosed) {
+      setIsClosed(false);
+    } else {
+      setIsClosed(true);
+    }
+  };
   return (
     <div className={`${styles.container} ${isScrolled ? styles.scrolled : ""}`}>
       {/* <div className={styles.spacer}></div> */}
-      <h1>
-        <Link
-          className={`${styles.titleLink} ${
-            isScrolled ? styles.scrolledText : ""
+      <div
+        className={`${styles.innerContainer} ${
+          isScrolled ? styles.scrolledInner : ""
+        }`}
+      >
+        <div
+          className={`${styles.spacer} ${
+            isScrolled ? styles.scrolledDivider : ""
           }`}
-          to="/"
-        >
-          <p className={styles.topTitle}>MODERN </p>
-          <p className={styles.bottomTitle}>CONSUMERISM</p>
-        </Link>
-        {/* Maybe make a stylized logo and turn this into img instead of text? */}
-      </h1>
+        ></div>
+        <div className={styles.navBarMobileBtn}>
+          <button type="button" onClick={togglePopUp}>
+            <img src={menuBtn} alt="" />
+          </button>
+        </div>
+        <h1>
+          <Link
+            className={`${styles.titleLink} ${
+              isScrolled ? styles.scrolledText : ""
+            }`}
+            to="/"
+          >
+            <p className={styles.topTitle}>MODERN </p>
+            <p className={styles.bottomTitle}>CONSUMERISM</p>
+          </Link>
+          {/* Maybe make a stylized logo and turn this into img instead of text? */}
+        </h1>
 
-      <Link className={styles.shoppingBag} to="">
-        <img src={shoppingBag} alt="bag" />
-      </Link>
-      <NavBar products={products} />
+        <Link
+          className={`${styles.shoppingBag} ${
+            isScrolled ? styles.scrolledBag : ""
+          }`}
+          to=""
+        >
+          <img src={shoppingBag} alt="bag" />
+        </Link>
+      </div>
+      <NavBar
+        // className={styles.navBar}
+        products={products}
+        isScrolled={isScrolled}
+      />
+      <NavBarMobile products={products} isClosed={isClosed} />
     </div>
   );
 };

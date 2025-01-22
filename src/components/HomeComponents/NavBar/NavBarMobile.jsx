@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import styles from "./NavBar.module.css";
+import styles from "./NavBarMobile.module.css";
 
-const NavBar = ({ products, isScrolled }) => {
+const NavBarMobile = ({ products, isClosed }) => {
   return (
-    <nav className={`${styles.navBar} ${isScrolled ? styles.scrolled : ""}`}>
+    <nav className={`${styles.navBar} ${isClosed ? styles.closeNavBar : ""}`}>
       <Link
         to="/products/all"
         className={styles.navLink}
@@ -45,4 +45,4 @@ const NavBar = ({ products, isScrolled }) => {
   );
 };
 
-export default NavBar;
+export default NavBarMobile;
