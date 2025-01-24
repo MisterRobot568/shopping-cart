@@ -1,6 +1,9 @@
 /* .container {
   margin: 500px;
 } */
+.container {
+  width: 100%;
+}
 .bannerImage {
   width: 100%;
 }
@@ -9,6 +12,7 @@
 .minimalismImage,
 .sustainableImage {
   width: 30rem;
+  /* width: 60%; */
 }
 /* .minimalismImage {
   width: 200px;

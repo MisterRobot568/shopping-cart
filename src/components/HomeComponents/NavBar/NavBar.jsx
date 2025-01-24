@@ -9,7 +9,7 @@ const NavBar = ({ products, isScrolled }) => {
         className={styles.navLink}
         state={{ products: products }}
       >
-        Collection
+        COLLECTION
       </Link>
 
       <Link
@@ -19,7 +19,7 @@ const NavBar = ({ products, isScrolled }) => {
           products: products.filter((p) => p.category === "electronics"),
         }}
       >
-        Electronics
+        ELECTRONICS
       </Link>
 
       <Link
@@ -29,7 +29,7 @@ const NavBar = ({ products, isScrolled }) => {
           products: products.filter((p) => p.category === "men's clothing"),
         }}
       >
-        Mens
+        MENS
       </Link>
 
       <Link
@@ -39,7 +39,7 @@ const NavBar = ({ products, isScrolled }) => {
           products: products.filter((p) => p.category === "women's clothing"),
         }}
       >
-        Womens
+        WOMENS
       </Link>
     </nav>
   );

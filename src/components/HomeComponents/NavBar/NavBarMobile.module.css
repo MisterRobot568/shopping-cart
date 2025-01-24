@@ -1,7 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  width: 100%;
+  /* margin: 1rem; */
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.closeContainer {
+  display: none;
+}
 .navBar {
   display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  width: 80%;
+  /* margin: 1rem; */
+  padding: 1rem;
+  letter-spacing: 4px;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+/* .navLink {
+  border: 1px solid white;
+} */
+.spacer {
+  height: 0.5px;
+  width: 100%;
+  background-color: Gray;
+}
+.closeButton {
+  all: unset;
+  /* removes all default styling from button */
+  background-color: black;
+}
+.closeButton:hover {
+  color: red;
+}
+.arrowUpIcon {
+  fill: blue;
+  width: 48px;
 }
 
-.closeNavBar {
-  display: none;
+@media (min-width: 500px) {
+  /* close the mobile navbar if width > 500px */
+  /* .navBar {
+    display: none;
+  } */
+  .container {
+    display: none;
+  }
 }

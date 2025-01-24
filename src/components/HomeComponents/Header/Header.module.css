@@ -1,13 +1,26 @@
-.container {
+.outerContainer {
   display: flex;
   flex-direction: column;
   /* background-color: yellow; */
-  width: 100vw;
+  width: 100%;
   /* height: 10rem; */
   margin: 0;
   justify-content: center;
   align-items: center;
   position: sticky;
+  /* top: 0; */
+  transition: background-color 0.3s ease;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+  width: 100%;
+  /* height: 10rem; */
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  /* position: sticky; */
   /* top: 0; */
   transition: background-color 0.3s ease;
 }
@@ -20,6 +33,11 @@
 .spacer {
   /* flex-grow: 1; */
   width: 100px;
+}
+.menuBtn {
+  background-color: black;
+  all: unset;
+  /* removes all default button styling */
 }
 .titleLink {
   text-decoration: none;
@@ -66,6 +84,19 @@
   color: white;
   padding: 20px;
   /* fontsize: */
+  /* display: flex;
+  flex-direction: column; */
+}
+.scrolledOuter {
+  background-color: black;
+  position: sticky;
+  top: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  color: white;
+  padding: 20px;
 }
 .scrolledInner {
   /* display: flex;
@@ -88,4 +119,14 @@
 }
 .navBar {
   width: 20%;
+}
+.navBarBtnScrolled {
+  display: none;
+}
+.NavBarMobile {
+}
+@media (min-width: 500px) {
+  .navBarMobileBtn {
+    display: none;
+  }
 }

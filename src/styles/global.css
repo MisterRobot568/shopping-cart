@@ -16,7 +16,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
-@media (max-width: 500px) {
+@media (max-width: 501px) {
   body {
     width: 500px;
   }

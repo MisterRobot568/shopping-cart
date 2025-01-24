@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import shoppingBag from "../../../assets/shopping-bag.svg";
+import shoppingBagInverted from "../../../assets/shopping-bag-inverted.svg";
+
 import menuBtn from "../../../assets/menu-btn.svg";
 import NavBar from "../NavBar/NavBar";
 import NavBarMobile from "../NavBar/NavBarMobile";
@@ -23,51 +25,82 @@ const Header = ({ products, isScrolled }) => {
     }
   };
   return (
-    <div className={`${styles.container} ${isScrolled ? styles.scrolled : ""}`}>
-      {/* <div className={styles.spacer}></div> */}
+    <div
+      className={`${styles.outerContainer} ${
+        isScrolled ? styles.scrolledOuter : ""
+      }`}
+    >
       <div
-        className={`${styles.innerContainer} ${
-          isScrolled ? styles.scrolledInner : ""
-        }`}
+        // className={styles.container}
+        className={`${styles.container} ${isScrolled ? styles.scrolled : ""}`}
       >
+        {/* <div className={styles.spacer}></div> */}
         <div
-          className={`${styles.spacer} ${
-            isScrolled ? styles.scrolledDivider : ""
+          className={`${styles.innerContainer} ${
+            isScrolled ? styles.scrolledInner : ""
           }`}
-        ></div>
-        <div className={styles.navBarMobileBtn}>
-          <button type="button" onClick={togglePopUp}>
-            <img src={menuBtn} alt="" />
-          </button>
-        </div>
-        <h1>
-          <Link
-            className={`${styles.titleLink} ${
-              isScrolled ? styles.scrolledText : ""
-            }`}
-            to="/"
-          >
-            <p className={styles.topTitle}>MODERN </p>
-            <p className={styles.bottomTitle}>CONSUMERISM</p>
-          </Link>
-          {/* Maybe make a stylized logo and turn this into img instead of text? */}
-        </h1>
-
-        <Link
-          className={`${styles.shoppingBag} ${
-            isScrolled ? styles.scrolledBag : ""
-          }`}
-          to=""
         >
-          <img src={shoppingBag} alt="bag" />
-        </Link>
+          <div
+            className={`${styles.spacer} ${
+              isScrolled ? styles.scrolledDivider : ""
+            }`}
+          ></div>
+          {isScrolled && (
+            <div
+              className={`${styles.navBarMobileBtn} ${
+                isScrolled ? "" : styles.navBarBtnScrolled
+                // this conditional may be redundant. Check later
+              }`}
+            >
+              <button
+                className={styles.menuBtn}
+                type="button"
+                onClick={togglePopUp}
+              >
+                <img src={menuBtn} alt="" />
+              </button>
+            </div>
+          )}
+          <h1>
+            <Link
+              className={`${styles.titleLink} ${
+                isScrolled ? styles.scrolledText : ""
+              }`}
+              to="/"
+            >
+              <p className={styles.topTitle}>MODERN </p>
+              <p className={styles.bottomTitle}>CONSUMERISM</p>
+            </Link>
+            {/* Maybe make a stylized logo and turn this into img instead of text? */}
+          </h1>
+
+          <Link
+            className={`${styles.shoppingBag} ${
+              isScrolled ? styles.scrolledBag : ""
+            }`}
+            to=""
+          >
+            {isScrolled ? (
+              <img src={shoppingBagInverted} alt="bag" />
+            ) : (
+              <img src={shoppingBag} alt="bag" />
+            )}
+            {/* <img src={shoppingBag} alt="bag" /> */}
+          </Link>
+        </div>
+        <NavBar
+          // className={styles.navBar}
+          products={products}
+          isScrolled={isScrolled}
+        />
       </div>
-      <NavBar
-        // className={styles.navBar}
-        products={products}
-        isScrolled={isScrolled}
-      />
-      <NavBarMobile products={products} isClosed={isClosed} />
+      {isScrolled && (
+        <NavBarMobile
+          products={products}
+          isClosed={isClosed}
+          closePopup={closePopup}
+        />
+      )}
     </div>
   );
 };
