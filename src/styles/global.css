@@ -7,18 +7,26 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 100%;
+  min-width: 390px;
   /* height: 100; */
   text-decoration: none;
+  /* box-sizing: border-box; */
 }
 
+* {
+  /* box-sizing: border-box; */
+}
 a {
   text-decoration: none;
   color: inherit;
 }
-@media (max-width: 501px) {
-  body {
-    width: 500px;
+@media (max-width: 430px) {
+  body,
+  html {
+    width: 100%;
+    max-width: 100%;
   }
   /* document {
     width: 500px;

@@ -78,10 +78,17 @@
   text-align: left;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 430px) {
   .container {
+    width: 100%;
     /* width: 500px; */
     /* width: 100vw; */
+  }
+  .consumerImage,
+  .minimalismImage,
+  .sustainableImage {
+    width: 90%;
+    /* width: 60%; */
   }
   .picAndText {
     flex-direction: column;

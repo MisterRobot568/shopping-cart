@@ -9,6 +9,9 @@ const NavBarMobile = ({ products, isClosed, closePopup }) => {
   ///////////////////////////////////////////
   // REVIEW THIS CODEBLOCK
   const popupRef = useRef(null);
+  // useRef creates an object that has a single property, current
+  // useRef does not cause the component to re render
+  // useRef persists across renders
 
   useEffect(() => {
     const handleClickOutside = (event) => {

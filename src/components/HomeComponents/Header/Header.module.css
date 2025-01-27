@@ -32,7 +32,7 @@
 }
 .spacer {
   /* flex-grow: 1; */
-  width: 100px;
+  width: 50px;
 }
 .menuBtn {
   background-color: black;
@@ -66,7 +66,7 @@
   font-size: 1rem;
 }
 .shoppingBag {
-  width: 100px;
+  width: 50px;
 
   /* flex: none; */
   /* position: absolute; */
@@ -82,7 +82,8 @@
   align-items: center;
   height: 5rem;
   color: white;
-  padding: 20px;
+  box-sizing: border-box;
+  /* padding: 20px; */
   /* fontsize: */
   /* display: flex;
   flex-direction: column; */
@@ -96,7 +97,9 @@
   align-items: center;
   height: 5rem;
   color: white;
-  padding: 20px;
+
+  box-sizing: border-box;
+  /* padding: 20px; */
 }
 .scrolledInner {
   /* display: flex;
@@ -125,8 +128,14 @@
 }
 .NavBarMobile {
 }
-@media (min-width: 500px) {
+@media (min-width: 430px) {
   .navBarMobileBtn {
     display: none;
+  }
+}
+@media (max-width: 430px) {
+  .outerContainer {
+    /* width: 100%; */
+    /* width: 500px; */
   }
 }

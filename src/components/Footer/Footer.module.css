@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  min-width: 500px;
+  /* min-width: 500px; */
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -62,9 +62,9 @@
 }
 
 /* styling for mobile */
-@media (max-width: 500px) {
+@media (max-width: 430px) {
   .container {
-    width: 500px;
+    width: 100%;
   }
   .linksAndInfo {
     flex-direction: column;
