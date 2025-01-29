@@ -8,12 +8,16 @@ import { type } from "@testing-library/user-event/dist/cjs/utility/type.js";
 const NavBarMobile = ({ products, isClosed, closePopup }) => {
   ///////////////////////////////////////////
   // REVIEW THIS CODEBLOCK
+  // isClosed no longer closes the mobile navbar when toggled to true after this codeblock was implemented
   const popupRef = useRef(null);
   // useRef creates an object that has a single property, current
   // useRef does not cause the component to re render
   // useRef persists across renders
 
   useEffect(() => {
+    // if (isClosed) {
+    //   closePopup();
+    // }
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         closePopup();

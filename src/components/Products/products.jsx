@@ -6,24 +6,28 @@ import AllProducts from "../AllProducts/AllProducts";
 import Electronics from "../Electronics/Electronics";
 import styles from "./Products.module.css";
 import buyPhoto from "../../assets/buy.jpg";
+import bannerPhoto from "../../assets/shopping-cart.jpg";
 
 const Products = () => {
   let { category } = useParams();
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.textAndPhoto}>
-        <div className={styles.text}>
-          <p className={styles.header}>Our Products</p>
-          <p className={styles.blurb}>
-            Welcome to The Modern Consumerist! Browse our expertly curated
-            collection of everything you didn’t know you needed—from
-            trendsetting menswear and women’s essentials to electronics that
-            promise to make life easier (but won’t). Indulge responsibly… or
-            don’t. After all, it’s all here for your consuming pleasure!
-          </p>
+        <div className={styles.textContainer}>
+          <div className={styles.text}>
+            <p className={styles.header}>Our Products</p>
+            <p className={styles.blurb}>
+              Welcome to The Modern Consumerist! Browse our expertly curated
+              collection of everything you didn’t know you needed—from
+              trendsetting menswear and women’s essentials to electronics that
+              promise to make life easier. Indulge responsibly… or don’t. After
+              all, you can never have enough stuff!
+            </p>
+          </div>
         </div>
-
-        <img className={styles.photo} src={buyPhoto} alt="" />
+        <div className={styles.imgContainer}>
+          <img className={styles.photo} src={bannerPhoto} alt="" />
+        </div>
       </div>
       {/* <p>THIS IS THE PRODUCTS PAGE</p>
       <p>RENDER PRODUCTS HERE</p> */}

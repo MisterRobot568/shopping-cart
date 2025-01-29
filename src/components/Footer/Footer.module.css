@@ -65,20 +65,48 @@
 @media (max-width: 430px) {
   .container {
     width: 100%;
+    align-items: center;
   }
   .linksAndInfo {
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
+    /* order: 2; */
+  }
+  .linkSection {
+    order: 3;
   }
   .divider {
     height: 2px;
     width: 80%;
+    order: 2;
+  }
+  .iconSection {
+    order: 1;
+    gap: 0.5rem;
+  }
+  .iconAndText {
+    justify-content: center;
+    font-size: 0.9rem;
   }
   .description {
     text-align: center;
   }
   .footer {
+    gap: 0.65rem;
+    font-size: 0.6rem;
+  }
+  .linkSection {
     gap: 1rem;
+    font-size: 0.8rem;
+  }
+  .linkColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    font-size: 1rem;
   }
 }

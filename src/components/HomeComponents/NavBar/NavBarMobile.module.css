@@ -5,6 +5,8 @@
   color: white;
   width: 100%;
   /* margin: 1rem; */
+  box-sizing: border-box;
+
   padding: 1rem;
   align-items: center;
   justify-content: center;
@@ -46,7 +48,7 @@
   width: 48px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 430px) {
   /* close the mobile navbar if width > 500px */
   /* .navBar {
     display: none;

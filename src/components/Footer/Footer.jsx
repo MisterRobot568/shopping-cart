@@ -7,21 +7,21 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.linksAndInfo}>
         <div className={styles.linkSection}>
-          <div>
+          <div className={styles.linkColumn}>
             <p className={styles.header}>Company</p>
             <p>Our Story</p>
             <p>Virtual</p>
             <p>Eyecare</p>
             <p>Philanthropy</p>
           </div>
-          <div>
+          <div className={styles.linkColumn}>
             <p className={styles.header}>Brand</p>
             <p>Style & fit</p>
             <p>Craftsmanship</p>
             <p>Reviews</p>
             <p>Blog</p>
           </div>
-          <div>
+          <div className={styles.linkColumn}>
             <p className={styles.header}>Help</p>
             <p>Shipping & Returns</p>
             <p>Repairs</p>

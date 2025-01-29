@@ -20,6 +20,7 @@ const Header = ({ products, isScrolled }) => {
   const togglePopUp = () => {
     if (isClosed) {
       setIsClosed(false);
+      console.log("working");
     } else {
       setIsClosed(true);
     }
