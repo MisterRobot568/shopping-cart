@@ -15,7 +15,7 @@ const Products = () => {
       <div className={styles.textAndPhoto}>
         <div className={styles.textContainer}>
           <div className={styles.text}>
-            <p className={styles.header}>Our Products</p>
+            <p className={styles.header}>OUR PRODUCTS</p>
             <p className={styles.blurb}>
               Welcome to The Modern Consumerist! Browse our expertly curated
               collection of everything you didn’t know you needed—from
