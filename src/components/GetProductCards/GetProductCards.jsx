@@ -58,22 +58,31 @@ const GetProductCards = ({ productsList }) => {
   // if (error) return <p>A network error was encountered</p>;
 
   return (
-    <div>
+    <div className={styles.container}>
       {productsList &&
         productsList.map((product) => (
-          <div key={product.id}>
-            <Link to={`/item/${product.id}`} state={product}>
-              <img
-                className={styles.img}
-                src={product.image}
-                alt={product.title}
-              />
-              <h2>{product.title}</h2>
-              <p>price: {product.price}</p>
+          <Link
+            to={`/item/${product.id}`}
+            state={product}
+            className={styles.linkContainer}
+            key={product.id}
+          >
+            <div key={product.id} className={styles.productCard}>
+              <div className={styles.imgContainer}>
+                <img
+                  className={styles.img}
+                  src={product.image}
+                  alt={product.title}
+                />
+              </div>
 
               {/* <p>Product Description:{product.description}</p> */}
-            </Link>
-          </div>
+              <div className={styles.textContainer}>
+                <p>{product.title}</p>
+                <p>price: ${product.price}</p>
+              </div>
+            </div>
+          </Link>
         ))}
     </div>
   );
