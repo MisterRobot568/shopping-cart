@@ -31,18 +31,20 @@ const Products = () => {
       </div>
       {/* <p>THIS IS THE PRODUCTS PAGE</p>
       <p>RENDER PRODUCTS HERE</p> */}
-      <p>category: {category}</p>
-      {category === "mens" ? (
-        <Mens />
-      ) : category === "womens" ? (
-        <Womens />
-      ) : category === "all" ? (
-        <AllProducts />
-      ) : category === "electronics" ? (
-        <Electronics />
-      ) : (
-        <AllProducts />
-      )}
+      <div className={styles.productsContainer}>
+        <p>category: {category}</p>
+        {category === "mens" ? (
+          <Mens />
+        ) : category === "womens" ? (
+          <Womens />
+        ) : category === "all" ? (
+          <AllProducts />
+        ) : category === "electronics" ? (
+          <Electronics />
+        ) : (
+          <AllProducts />
+        )}
+      </div>
     </div>
   );
 };

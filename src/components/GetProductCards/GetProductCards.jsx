@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import ProductCard from "../ProductCard/ProductCard";
 // css modules styling
 import styles from "./GetProductCards.module.css";
 // import { Link } from "react-router-dom";
@@ -61,28 +61,7 @@ const GetProductCards = ({ productsList }) => {
     <div className={styles.container}>
       {productsList &&
         productsList.map((product) => (
-          <Link
-            to={`/item/${product.id}`}
-            state={product}
-            className={styles.linkContainer}
-            key={product.id}
-          >
-            <div key={product.id} className={styles.productCard}>
-              <div className={styles.imgContainer}>
-                <img
-                  className={styles.img}
-                  src={product.image}
-                  alt={product.title}
-                />
-              </div>
-
-              {/* <p>Product Description:{product.description}</p> */}
-              <div className={styles.textContainer}>
-                <p>{product.title}</p>
-                <p>price: ${product.price}</p>
-              </div>
-            </div>
-          </Link>
+          <ProductCard product={product} key={product.id} />
         ))}
     </div>
   );
