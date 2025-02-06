@@ -7,6 +7,7 @@ const AllProducts = () => {
   const location = useLocation();
   const { products } = location.state || { products: [] };
   console.log("Products in AllProducts", products);
+  console.log("length of products", products.length);
   return (
     <div>
       {/* <div className={styles.textAndPhoto}>

@@ -79,7 +79,7 @@ const Header = ({ products, isScrolled }) => {
             className={`${styles.shoppingBag} ${
               isScrolled ? styles.scrolledBag : ""
             }`}
-            to=""
+            to="/cart"
           >
             {isScrolled ? (
               <img src={shoppingBagInverted} alt="bag" />

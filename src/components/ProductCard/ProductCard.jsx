@@ -44,6 +44,8 @@ const ProductCard = ({ product }) => {
     <div className={styles.container}>
       <Link
         to={`/item/${product.id}`}
+        // to={`/products/${product.category}/${product.id}`}
+        // to={`/products/all/item/${product.id}`}
         state={product}
         className={styles.linkContainer}
       >

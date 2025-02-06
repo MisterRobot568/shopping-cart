@@ -20,7 +20,7 @@ import DefaultProfile from "./components/DefaultProfile"; //change this to an ac
 import GetProductCards from "./components/GetProductCards/GetProductCards";
 
 import { useParams } from "react-router-dom"; // so that we can dynamically swap pages
-
+import { debounce } from "lodash";
 const App = () => {
   // const { name } = useParams();
   const [products, setProducts] = useState([]);
@@ -48,9 +48,26 @@ const App = () => {
     //     setIsSticky(false);
     //   }
     // };
+
+    // const handleScroll = debounce(() => {
+    //   setIsScrolled(window.scrollY > 1);
+    // }, 100);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 115);
+      // if we scroll at all, then swap conditional styling on header
+      setIsScrolled(window.scrollY > 0);
     };
+    //POSSIBLE FIX TO THE FLICKERING HEADER
+    // const handleScroll = () => {
+    //   const scrollY = window.scrollY;
+    //   const threshold = 115; // Change header at 200px
+    //   const buffer = 10; // Prevents flickering at the threshold
+
+    //   setIsScrolled((prev) => {
+    //     if (scrollY > threshold + buffer && !prev) return true;
+    //     if (scrollY < threshold - buffer && prev) return false;
+    //     return prev;
+    //   });
+    // };
 
     if (cachedProducts) {
       // use cached data if available
