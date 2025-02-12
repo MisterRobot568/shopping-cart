@@ -1,9 +1,12 @@
 import { useParams, useLocation } from "react-router-dom";
 import styles from "./Item.module.css";
+
+import { useContext } from "react";
+import { CartContext } from "../../App";
 const Item = () => {
   // this component is the page for a specific product when you click on it.
   //   const { category } = useParams();
-  const { item } = useParams();
+  // const { item } = useParams();
   // useParams gives you access to url parameters
   const location = useLocation();
   //   const product = location.state?.product;
@@ -17,6 +20,10 @@ const Item = () => {
   // price
   // rating.count, rating.rate
   // title
+  let currentProduct = product;
+  const { cartItems, addToCart } = useContext(CartContext);
+  // addToCart(currentProduct);
+  // console.log("currentCart: " + cartItems);
 
   return (
     <div className={styles.outerContainer}>
@@ -36,13 +43,18 @@ const Item = () => {
             {product.rating.rate} from {product.rating.count} reviews
           </p>
           <div>
-            <button className={styles.button} type="button">
+            <button
+              className={styles.button}
+              type="button"
+              onClick={() => {
+                addToCart(currentProduct);
+              }}
+            >
               Add to Cart
             </button>
           </div>
         </div>
       </div>
-      {/* <p>{location}</p> */}
     </div>
   );
 };

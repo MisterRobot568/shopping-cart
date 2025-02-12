@@ -21,7 +21,20 @@ import GetProductCards from "./components/GetProductCards/GetProductCards";
 
 import { useParams } from "react-router-dom"; // so that we can dynamically swap pages
 import { debounce } from "lodash";
+
+import { createContext } from "react";
+
+//////////CONTEXT TESTING////////
+export const CartContext = createContext({
+  cartItems: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+  // countCartItems: () => {},
+});
+
 const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [cartItemCount, setCartItemCount] = useState(0);
   // const { name } = useParams();
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -31,43 +44,34 @@ const App = () => {
 
   const location = useLocation(); // determines the current path (url)
 
+  const addToCart = (newItem) => {
+    setCartItems((prevItems) => {
+      const updatedCart = [...prevItems, newItem];
+      setCartItemCount(updatedCart.length);
+      return updatedCart;
+    });
+
+    // setCartItemCount((prevCount) => prevCount + 1);
+    // setCartItemCount(cartItems.length);
+    // When you use the function form of setState, React
+    // automatically passes the current state value to the function as your arg
+  };
+  const removeFromCart = (index) => {
+    setCartItems((prevItems) => {
+      prevItems.filter((_, i) => i == index);
+    });
+    setCartItemCount((prevCount) => prevCount - 1);
+  };
   // for in memory cache
   // const cache = useRef({});
 
   useEffect(() => {
     const cachedProducts = localStorage.getItem("products");
 
-    // const handleScroll = () => {
-    //   const headerElement = document.querySelector(
-    //     `.${headerStyles.mainHeaderContainer}`
-    //   );
-    //   const headerHeight = headerElement.offsetHeight;
-    //   if (window.scrollY > headerHeight) {
-    //     setIsSticky(true);
-    //   } else {
-    //     setIsSticky(false);
-    //   }
-    // };
-
-    // const handleScroll = debounce(() => {
-    //   setIsScrolled(window.scrollY > 1);
-    // }, 100);
     const handleScroll = () => {
       // if we scroll at all, then swap conditional styling on header
       setIsScrolled(window.scrollY > 0);
     };
-    //POSSIBLE FIX TO THE FLICKERING HEADER
-    // const handleScroll = () => {
-    //   const scrollY = window.scrollY;
-    //   const threshold = 115; // Change header at 200px
-    //   const buffer = 10; // Prevents flickering at the threshold
-
-    //   setIsScrolled((prev) => {
-    //     if (scrollY > threshold + buffer && !prev) return true;
-    //     if (scrollY < threshold - buffer && prev) return false;
-    //     return prev;
-    //   });
-    // };
 
     if (cachedProducts) {
       // use cached data if available
@@ -101,16 +105,19 @@ const App = () => {
 
   return (
     <div className={styles.appWindow}>
-      <Header products={products} isScrolled={isScrolled} />
-      {/* {isSticky && <StickyHeader />} */}
-      {/* <NavBar products={products} /> */}
-      {location.pathname === "/" ? (
-        <HomeBody products={products} />
-      ) : (
-        <Outlet />
-      )}
-      {/* if at the home url, we render home component. If at another url, render child component */}
-
+      <CartContext.Provider
+        value={{ cartItems, addToCart, cartItemCount, removeFromCart }}
+      >
+        <Header products={products} isScrolled={isScrolled} />
+        {/* {isSticky && <StickyHeader />} */}
+        {/* <NavBar products={products} /> */}
+        {location.pathname === "/" ? (
+          <HomeBody products={products} />
+        ) : (
+          <Outlet />
+        )}
+        {/* if at the home url, we render home component. If at another url, render child component */}
+      </CartContext.Provider>
       {/* footer should go here */}
       <Footer />
     </div>

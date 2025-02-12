@@ -8,7 +8,13 @@ import NavBar from "../NavBar/NavBar";
 import NavBarMobile from "../NavBar/NavBarMobile";
 import { useState, useEffect } from "react";
 
+import { useContext } from "react";
+import { CartContext } from "../../../App";
+
 const Header = ({ products, isScrolled }) => {
+  const { cartItems, addToCart, cartItemCount } = useContext(CartContext);
+  // const itemCountCart = cartItems.length;
+
   // logic for opening and closing popup nav menu
   const [isClosed, setIsClosed] = useState(false);
   const openPopup = () => {
@@ -81,6 +87,8 @@ const Header = ({ products, isScrolled }) => {
             }`}
             to="/cart"
           >
+            <p>cart:{cartItemCount}</p>
+            {/* <p>cart:{itemCountCart}</p> */}
             {isScrolled ? (
               <img src={shoppingBagInverted} alt="bag" />
             ) : (
