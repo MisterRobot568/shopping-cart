@@ -67,6 +67,7 @@ const App = () => {
       ...prevItems.slice(0, index),
       ...prevItems.slice(index + 1),
     ]);
+    setCartItemCount((prevCount) => prevCount - 1);
   };
   // for in memory cache
   // const cache = useRef({});
