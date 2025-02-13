@@ -56,11 +56,17 @@ const App = () => {
     // When you use the function form of setState, React
     // automatically passes the current state value to the function as your arg
   };
+  // const removeFromCart = (index) => {
+  //   setCartItems((prevItems) => {
+  //     prevItems.filter((_, i) => i == index);
+  //   });
+  //   setCartItemCount((prevCount) => prevCount - 1);
+  // };
   const removeFromCart = (index) => {
-    setCartItems((prevItems) => {
-      prevItems.filter((_, i) => i == index);
-    });
-    setCartItemCount((prevCount) => prevCount - 1);
+    setCartItems((prevItems) => [
+      ...prevItems.slice(0, index),
+      ...prevItems.slice(index + 1),
+    ]);
   };
   // for in memory cache
   // const cache = useRef({});
