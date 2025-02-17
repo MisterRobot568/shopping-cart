@@ -9,20 +9,26 @@ const Cart = () => {
   // console.log(cartItems);
   return (
     <div className={styles.container}>
-      {cartItems &&
-        cartItems.map((item, index) => (
-          <div key={index}>
-            {item.title}{" "}
-            <button
-              type="button"
-              onClick={() => {
-                removeFromCart(index);
-              }}
-            >
-              remove item
-            </button>
-          </div>
-        ))}
+      <p>Your Cart</p>
+
+      <div className={styles.cart}>
+        {cartItems &&
+          cartItems.map((item, index) => (
+            <div key={index} className={styles.cartCard}>
+              <img className={styles.img} src={item.image} alt="" />
+              <p className={styles.title}>{item.title} </p>
+              <p className={styles.price}>{item.price}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  removeFromCart(index);
+                }}
+              >
+                REMOVE ITEM
+              </button>
+            </div>
+          ))}
+      </div>
 
       {/* <p>{cartItems}</p> */}
       <p>Hello this is the cart page</p>
