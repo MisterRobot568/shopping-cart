@@ -1,14 +1,18 @@
-import styles from "./Cart.module.css";
+import styles from "./CartCard.module.css";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 
-const CartCard = ({ item }) => {
-  const stuff = "this";
-
+const CartCard = ({ item, index }) => {
+  const { cartItems, removeFromCart } = useContext(CartContext);
   return (
     <div key={index} className={styles.cartCard}>
-      <img className={styles.img} src={item.image} alt="" />
+      <div className={styles.imgContainer}>
+        <img className={styles.img} src={item.image} alt="" />
+      </div>
       <p className={styles.title}>{item.title} </p>
-      <p className={styles.price}>{item.price}</p>
+      <p className={styles.price}>${item.price}</p>
       <button
+        className={styles.button}
         type="button"
         onClick={() => {
           removeFromCart(index);

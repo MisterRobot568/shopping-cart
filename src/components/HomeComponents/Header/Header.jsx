@@ -87,7 +87,13 @@ const Header = ({ products, isScrolled }) => {
             }`}
             to="/cart"
           >
-            <p>cart:{cartItemCount}</p>
+            <div
+              className={`${styles.itemCount} ${
+                isScrolled ? styles.itemCountBackground : ""
+              }`}
+            >
+              {cartItemCount}
+            </div>
             {/* <p>cart:{itemCountCart}</p> */}
             {isScrolled ? (
               <img src={shoppingBagInverted} alt="bag" />

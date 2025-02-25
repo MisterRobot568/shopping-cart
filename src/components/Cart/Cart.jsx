@@ -2,6 +2,7 @@ import styles from "./Cart.module.css";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../App";
+import CartCard from "./CartCard";
 
 //1) we'll try useLocation method to pass data to the Cart component
 const Cart = () => {
@@ -11,7 +12,7 @@ const Cart = () => {
     <div className={styles.container}>
       <p>Your Cart</p>
 
-      <div className={styles.cart}>
+      {/* <div className={styles.cart}>
         {cartItems &&
           cartItems.map((item, index) => (
             <div key={index} className={styles.cartCard}>
@@ -27,6 +28,12 @@ const Cart = () => {
                 REMOVE ITEM
               </button>
             </div>
+          ))}
+      </div> */}
+      <div className={styles.cart}>
+        {cartItems &&
+          cartItems.map((item, index) => (
+            <CartCard item={item} index={index} key={index} />
           ))}
       </div>
 
