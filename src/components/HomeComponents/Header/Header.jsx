@@ -68,7 +68,7 @@ const Header = ({ products, isScrolled }) => {
               </button>
             </div>
           )}
-          <h1>
+          <h1 className={styles.title}>
             <Link
               className={`${styles.titleLink} ${
                 isScrolled ? styles.scrolledText : ""
@@ -87,13 +87,18 @@ const Header = ({ products, isScrolled }) => {
             }`}
             to="/cart"
           >
-            <div
-              className={`${styles.itemCount} ${
-                isScrolled ? styles.itemCountBackground : ""
-              }`}
-            >
-              {cartItemCount}
-            </div>
+            {cartItemCount > 0 ? (
+              <div
+                className={`${styles.itemCount} ${
+                  isScrolled ? styles.itemCountBackground : ""
+                }`}
+              >
+                {cartItemCount}
+              </div>
+            ) : (
+              ""
+            )}
+
             {/* <p>cart:{itemCountCart}</p> */}
             {isScrolled ? (
               <img src={shoppingBagInverted} alt="bag" />

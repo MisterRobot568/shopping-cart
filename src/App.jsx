@@ -30,6 +30,7 @@ export const CartContext = createContext({
   addToCart: () => {},
   removeFromCart: () => {},
   // countCartItems: () => {},
+  cartItemCount: 0,
 });
 
 const App = () => {

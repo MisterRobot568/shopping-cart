@@ -51,6 +51,9 @@ import styles from "./GetProductCards.module.css";
 // }
 
 const GetProductCards = ({ productsList }) => {
+  // this component accepts the productsList as a prop and renders
+  // productCard components
+
   // const { products, error, loading } = useFetchProducts(category);
   // const { products } = category;
 

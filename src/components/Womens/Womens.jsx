@@ -7,7 +7,6 @@ const Womens = () => {
   const { products } = location.state || { products: [] };
   return (
     <div>
-      <p>WOMENS SELECTION </p>
       <GetProductCards productsList={products} />
     </div>
   );

@@ -17,6 +17,8 @@
   grid-template-columns: 1fr 2fr 1fr 1fr;
   justify-items: center;
   align-items: center;
+  box-shadow: ;
+  margin: 1rem;
 }
 .imgContainer {
   width: 125px;
@@ -33,6 +35,26 @@ img {
   justify-self: start;
 }
 .button {
-  width: 100px;
-  height: 75px;
+  /* width: 75px;
+  height: 50px; */
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  letter-spacing: 1px;
+  outline: 0;
+
+  transition: background-color 0.2s ease-out 0s;
+  transition: color 0.2s ease-out 0s;
+}
+.button:hover {
+  color: white;
+  background-color: black;
+}
+
+@media (max-width: 430px) {
+  .imgContainer {
+    width: 100px;
+    height: 100px;
+  }
 }
