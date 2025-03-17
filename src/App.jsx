@@ -31,6 +31,7 @@ export const CartContext = createContext({
   removeFromCart: () => {},
   // countCartItems: () => {},
   cartItemCount: 0,
+  products: [],
 });
 
 const App = () => {
@@ -114,7 +115,13 @@ const App = () => {
   return (
     <div className={styles.appWindow}>
       <CartContext.Provider
-        value={{ cartItems, addToCart, cartItemCount, removeFromCart }}
+        value={{
+          cartItems,
+          addToCart,
+          cartItemCount,
+          removeFromCart,
+          products,
+        }}
       >
         <Header products={products} isScrolled={isScrolled} />
         {/* {isSticky && <StickyHeader />} */}

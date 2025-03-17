@@ -5,6 +5,8 @@ import sustainable from "../../../assets/sustainable.jpg";
 
 import styles from "./HomeBody.module.css";
 import { Link } from "react-router-dom";
+
+import PropTypes from "prop-types";
 const HomeBody = ({ products }) => {
   return (
     <div className={styles.container}>

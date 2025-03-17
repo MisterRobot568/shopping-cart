@@ -7,13 +7,17 @@ import { Link } from "react-router-dom";
 
 //1) we'll try useLocation method to pass data to the Cart component
 const Cart = () => {
-  const { cartItems, removeFromCart, cartItemCount } = useContext(CartContext);
+  const { cartItems, removeFromCart, cartItemCount, products } =
+    useContext(CartContext);
   // console.log(cartItems);
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>YOUR CART</div>
+    // <div className={styles.container}>
+    <div
+      className={cartItemCount > 0 ? styles.container : styles.containerEmpty}
+    >
       {cartItemCount > 0 ? (
-        <div>
+        <div className={styles.cartContainer}>
+          <div className={styles.title}>YOUR CART</div>
           <div className={styles.itemLabels}>
             <div>ITEM</div>
             <div>DESCRIPTION</div>
@@ -29,13 +33,12 @@ const Cart = () => {
           </div>
 
           {/* <p>{cartItems}</p> */}
-          <p>Hello this is the cart page</p>
         </div>
       ) : (
         <div className={styles.cartEmptyContainer}>
-          <div>Cart is empty</div>
-          <Link to="/products/all">
-            <div>SHOP NOW</div>
+          <div className={styles.emptyMessage}>YOUR CART IS EMPTY</div>
+          <Link to="/products/all" state={{ products: products }}>
+            <div className={styles.shopNow}>SHOP NOW</div>
           </Link>
         </div>
       )}

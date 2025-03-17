@@ -32,7 +32,7 @@ img {
 }
 .title {
   /* place-self: start; */
-  justify-self: start;
+  justify-self: middle;
 }
 .button {
   /* width: 75px;
